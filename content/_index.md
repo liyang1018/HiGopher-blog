@@ -76,8 +76,9 @@ sections:
       # Contact (add or remove contact options as necessary)
       email: 17863130159@163.com
       phone: +86 17863130159
-      appointment_url: 'https://calendly.com'
+      # appointment_url: 'https://calendly.com'
       address:
+        street: HaiDian District
         city: Beijing
         country: China
         country_code: CN

@@ -1,29 +1,35 @@
 ---
+title: Go中控制协程数的几种方法
+subtitle: 使用缓冲通道和信号量的方式来实现协程数控制
 
-title: Go中控制协程数量的几种方法
+# Summary for listings and search engines
+summary: 使用缓冲通道和信号量的方式来实现协程数控制
 
-summary: 展示通过通道和信号量的方式来控制线程数
+# Link this post with a project
+projects: []
 
-date: 2022-12-08
+# Date published
+date: '2020-12-13T00:00:00Z'
 
+# Date updated
+lastmod: '2020-12-13T00:00:00Z'
+
+# Is this an unpublished draft?
 draft: false
 
-authors:
+# Show this page in the Featured widget?
+featured: false
 
-    - admin
+authors:
+  - admin
 
 tags:
-
-    - Golang 
-
-    - 并发
+  - Golang
+  - 并发
 
 categories:
-
-    - Golang
-
-    - 并发
-
+  - Golang
+  - 并发
 ---
 
     在Golang中通过```go```关键字可以很方便的创建一个协程， 并且由于协程资源占用很小，可以随意创建成千上万个协程，但是在实际使用中，其数量往往因为各种因素不能无限制的增长，例如网络连接、数据库连接或者下游服务处理能力等，因此需要控制协程数量。下文将分别尝试用通道和信号量的方式来控制协程数。

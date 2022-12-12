@@ -32,7 +32,7 @@ categories:
   - 开源库
 ---
 
-# Casbin是什么
+# casbin是什么
 
 [casbin](https://github.com/casbin/casbin)是一个强大的开源访问控制组件，用来实现各种访问控制模型的授权，支持```golang```,```java```,```php```,```python```,```c++```等众多语言。简单来说，用来控制哪些用户能访问哪些接口，或者哪几类用户能访问哪几类接口。注意需要区分认证与授权。<mark>认证：你是谁，授权：你能做什么</mark>
 

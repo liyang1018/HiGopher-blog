@@ -121,7 +121,7 @@ func main() {
 
 数据库中创建的表如下：
 
-![databasepng](file:///Users/vito.li/Documents/pictures/database.png?msec=1670836358693)
+![databasepng](./database.png)
 
 ## 实际项目的应用：
 

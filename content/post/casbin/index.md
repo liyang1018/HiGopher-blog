@@ -38,7 +38,7 @@ categories:
 
 [casbin](https://github.com/casbin/casbin)是一个强大的开源访问控制组件，用来实现各种访问控制模型的授权，支持```golang```,```java```,```php```,```python```,```c++```等众多语言。简单来说，用来控制哪些用户能访问哪些接口，或者哪几类用户能访问哪几类接口。注意需要区分认证与授权。<mark>认证：你是谁，授权：你能做什么</mark>
 
-## 2、Casbin的原理
+## 2、Casbin的原理
 
 `Casbin`基于PERM模型(`policy, Effect, Request, Matchers`)实现，将所有定义放在一个`conf`文件中，下面是最常见的`RBAC`模型的`conf`文件：
 
@@ -70,7 +70,7 @@ p, bob, data2, write
 
 这意味着`alice`能够读取`data1`，`bob`能够写`data2`。
 
-## 3、Casbin如何使用：
+## 3、Casbin如何使用
 
 下面通过一段简单的实例程序来演示如何使用`Casbin`：
 
@@ -125,7 +125,7 @@ func main() {
 
 ![databasepng](./database.png)
 
-## 4、实际项目的应用：
+## 4、在项目中使用Casbin
 
 经过上面的演示，我们已经掌握了`Casbin`的用法，在实际项目中，授权功能多是在中间件层完成，因此我们可以将`Casbin`作为中间件层的拦截器，请求到达中间件层即可进行拦截。
 

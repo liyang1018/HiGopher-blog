@@ -48,7 +48,7 @@ education:
 social:
   - icon: envelope
     icon_pack: fas
-    link: '/#contact'
+    link: 17863130159@163.com
   - icon: github
     icon_pack: fab
     link: https://github.com/liyang1018

@@ -34,8 +34,6 @@ categories:
 - GMP模型
 ---
 
-# 常见面试问题总结-Golang-GMP
-
 ## 1、GMP是什么？
 
 GPM是一种并发执行模型，用于描述Goroutine Scheduler如何管理和调度goroutine并在多个处理器（Processor）上执行。M:N调度模型，其中M代表逻辑处理器（P），N代表系统线程（OS Thread）。

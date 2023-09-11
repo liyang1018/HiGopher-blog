@@ -36,10 +36,10 @@ education:
   courses:
     - course: 软件工程-硕士
       institution: 哈尔滨工程大学
-      year: 2022
+      year: 2019-2022
     - course: 海洋工程-本科
       institution: 哈尔滨工业大学
-      year: 2019
+      year: 2015-2019
 
 # Social/Academic Networking
 # For available icons, see: https://wowchemy.com/docs/getting-started/page-builder/#icons

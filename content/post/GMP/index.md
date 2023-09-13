@@ -446,6 +446,6 @@ func main() {
 
 ## 参考资料
 
-- [Golang 调度器 GMP 原理与调度全分析](https://link.juejin.cn/?target=https%3A%2F%2Flearnku.com%2Farticles%2F41728)
-- [Go: Work-Stealing in Go Scheduler](https://link.juejin.cn/?target=https%3A%2F%2Fmedium.com%2Fa-journey-with-go%2Fgo-work-stealing-in-go-scheduler-d439231be64d)
-- [线程的3种实现方式--内核级线程, 用户级线程和混合型线程](https://link.juejin.cn/?target=https%3A%2F%2Fblog.csdn.net%2Fgatieme%2Farticle%2Fdetails%2F51892437)
+- [Golang 调度器 GMP 原理与调度全分析](https://learnku.com/articles/41728)
+- [Go: Work-Stealing in Go Scheduler](https://medium.com/a-journey-with-go/go-work-stealing-in-go-scheduler-d439231be64d)
+- [线程的3种实现方式--内核级线程, 用户级线程和混合型线程](https://blog.csdn.net/gatieme/article/details/51892437)

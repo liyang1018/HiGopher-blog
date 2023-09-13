@@ -34,8 +34,6 @@ categories:
 - GMP模型
 ---
 
--
-
 # Golang并发调度的GMP模型
 
 Golang的一大特色就是Goroutine。Goroutine是Golang支持高并发的重要保障。Golang可以创建成千上万个Goroutine来处理任务，将这些Goroutine分配、负载、调度到处理器上采用的是G-M-P模型。
@@ -75,7 +73,7 @@ Goroutine = Golang + Coroutine。**Goroutine是golang实现的协程，是用户
 
 ### 内核级线程模型
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3014ebb137414b968ea0deed8c4196e2~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![img](./1.png)
 
 **内核级线程模型中用户线程与内核线程是一对一关系（1 : 1）**。**线程的创建、销毁、切换工作都是有内核完成的**。应用程序不参与线程的管理工作，只能调用内核级线程编程接口(应用程序创建一个新线程或撤销一个已有线程时，都会进行一个系统调用）。每个用户线程都会被绑定到一个内核线程。用户线程在其生命期内都会绑定到该内核线程。一旦用户线程终止，两个线程都将离开系统。
 
@@ -93,7 +91,7 @@ Goroutine = Golang + Coroutine。**Goroutine是golang实现的协程，是用户
 
 ### 用户级线程模型
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1273aa1b15604a66a008c140ddf4ee26~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![img](./2.png)
 
 **用户线程模型中的用户线程与内核线程KSE是多对一关系（N : 1）**。**线程的创建、销毁以及线程之间的协调、同步等工作都是在用户态完成**，具体来说就是由应用程序的线程库来完成。**内核对这些是无感知的，内核此时的调度都是基于进程的**。线程的并发处理从宏观来看，任意时刻每个进程只能够有一个线程在运行，且只有一个处理器内核会被分配给该进程。
 
@@ -111,7 +109,7 @@ Goroutine = Golang + Coroutine。**Goroutine是golang实现的协程，是用户
 
 ### 两级线程模型
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a1014ba5fb88450ba11028079fc5bd01~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![img](./3.png)
 
 **两级线程模型中用户线程与内核线程是一对一关系（N : M）**。两级线程模型充分吸收上面两种模型的优点，尽量规避缺点。其线程创建在用户空间中完成，线程的调度和同步也在应用程序中进行。一个应用程序中的多个用户级线程被绑定到一些（小于或等于用户级线程的数目）内核级线程上。
 
@@ -119,11 +117,11 @@ Goroutine = Golang + Coroutine。**Goroutine是golang实现的协程，是用户
 
 **Golang在底层实现了混合型线程模型**。M即系统线程，由系统调用产生，一个M关联一个KSE，即两级线程模型中的系统线程。G为Groutine，即两级线程模型的的应用及线程。M与G的关系是N:M。
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/96a6257a915441698e2f3f9123efbdec~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![img](./4.png)
 
 ## G-M-P模型概览
 
-![G-M-P模型概览图](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fbaf7adc2b3d4878834fcc8a27e7a2f3~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![G-M-P模型概览图](./5.png)
 
 G-M-P分别代表：
 
@@ -141,7 +139,7 @@ GMP调度流程大致如下：
 
 ### 调度的生命周期
 
-![golang调度器生命周期 ](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8dd110976149422f8664abd3da15e8de~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![golang调度器生命周期 ](./6.png)
 
 - M0 是启动程序后的编号为 0 的主线程，这个 M 对应的实例会在全局变量 runtime.m0 中，不需要在 heap 上分配，M0 负责执行初始化操作和启动第一个 G， 在之后 M0 就和其他的 M 一样了
 - G0 是每次启动一个 M 都会第一个创建的 gourtine，G0 仅用于负责调度的 G，G0 不指向任何可执行的函数，每个 M 都会有一个自己的 G0。在调度或系统调用时会使用 G0 的栈空间，全局变量的 G0 是 M0 的 G0
@@ -172,7 +170,7 @@ go 语言本身的限制：go 程序启动时，会设置 M 的最大数量，�
 
 ### 调度的流程状态
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ca4939a070a4425282b4ec008f69f0fb~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![img](./7.png)
 
 从上图我们可以看出来：
 

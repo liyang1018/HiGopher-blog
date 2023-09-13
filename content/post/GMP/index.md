@@ -205,8 +205,7 @@ GMP模型的阻塞可能发生在下面几种情况：
 G的内部结构中重要字段如下，完全结构参见[源码](https://link.juejin.cn/?target=https%3A%2F%2Fgithub.com%2Fgolang%2Fgo%2Fblob%2F5622128a77b4af5e5dc02edf53ecac545e3af730%2Fsrc%2Fruntime%2Fruntime2.go%23L387)
 
 ```go
-go
-复制代码type g struct {
+type g struct {
     stack       stack   // g自己的栈
     m            *m      // 隶属于哪个M
     sched        gobuf   // 保存了g的现场，goroutine切换时通过它来恢复
@@ -239,8 +238,7 @@ G的状态有以下9种，可以参见[代码](https://link.juejin.cn/?target=ht
 M的内部结构，完整结构参见[源码](https://link.juejin.cn/?target=https%3A%2F%2Fgithub.com%2Fgolang%2Fgo%2Fblob%2F5622128a77b4af5e5dc02edf53ecac545e3af730%2Fsrc%2Fruntime%2Fruntime2.go%23L452)
 
 ```go
-go
-复制代码type m struct {
+type m struct {
     g0      *g     // g0, 每个M都有自己独有的g0
 
     curg          *g       // 当前正在运行的g
@@ -263,8 +261,7 @@ go
 P的内部结构，完全结构参见[源码](https://link.juejin.cn/?target=https%3A%2F%2Fgithub.com%2Fgolang%2Fgo%2Fblob%2F5622128a77b4af5e5dc02edf53ecac545e3af730%2Fsrc%2Fruntime%2Fruntime2.go%23L523)
 
 ```go
-go
-复制代码type p struct {
+type p struct {
     id          int32
     status      uint32 // P的状态
     link        puintptr // 下一个P, P链表
@@ -305,8 +302,7 @@ P有以下几种状态，参加[源码](https://link.juejin.cn/?target=https%3A%
 调度器内部结构，完全结构参见[源码](https://link.juejin.cn/?target=https%3A%2F%2Fgithub.com%2Fgolang%2Fgo%2Fblob%2F5622128a77b4af5e5dc02edf53ecac545e3af730%2Fsrc%2Fruntime%2Fruntime2.go%23L604)
 
 ```go
-go
-复制代码type schedt struct {
+type schedt struct {
 
     lock mutex
 
@@ -348,8 +344,7 @@ GODEBUG 变量可以控制运行时内的调试变量，参数以逗号分隔，
 - scheddetail：设置 schedtrace=X 和 scheddetail=1 可以使运行时在每 X 毫秒输出一次详细的多行信息，信息内容主要包括调度程序、处理器、OS 线程 和 Goroutine 的状态。
 
 ```go
-go
-复制代码package main
+package main
 
 import (
     "sync"
@@ -406,8 +401,7 @@ SCHED 4003ms: gomaxprocs=1 idleprocs=1 threads=4 spinningthreads=0 idlethreads=2
 ### Go tool trace方式
 
 ```go
-go
-复制代码func main() {
+func main() {
 	// 创建trace文件
 	f, err := os.Create("trace.out")
 	if err != nil {

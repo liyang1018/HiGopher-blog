@@ -430,6 +430,7 @@ func main() {
 > go tool trace trace.out
 
 ### 总结
+![img](./8.png)
 
 1. Golang的线程模型采用的是混合型线程模型，线程与协程关系是N:M。
 2. Golang混合型线程模型实现采用GMP模型进行调度，G是goroutine，是golang实现的协程，M是OS线程，P是逻辑处理器。

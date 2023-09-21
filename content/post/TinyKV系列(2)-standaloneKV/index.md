@@ -1,5 +1,5 @@
 ---
-title: TinyKV系列课程(2)-standaloneKV
+title: TinyKV系列(2)-standaloneKV
 
 # Summary for listings and search engines
 summary: TinyKV系列课程(2)-standaloneKV

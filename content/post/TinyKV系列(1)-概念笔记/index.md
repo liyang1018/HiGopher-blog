@@ -1,5 +1,5 @@
 ---
-title: TinyKV系列课程(1)-概念笔记
+title: TinyKV系列(1)-概念笔记
 
 # Summary for listings and search engines
 summary: TinyKV系列课程(1)-概念笔记
